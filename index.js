@@ -58,6 +58,26 @@ const books = [
   res.send(book); 
 });
 
+app.put("/api/books/:id", (req, res) => {
+    const findBookById = books.find((book) => book.id === parseInt(req.params.id));
+    if (!findBookById) {
+      res.status(404).send("The book was not found");
+      return;
+    }
+
+ 
+    const { error } = validateBook(req.body);
+    if (error) {
+        res.status(400).send(error.details[0].message)
+        return;
+    }
+
+
+    findBookById.title = req.body.title
+    res.send(findBookById); 
+
+});
+
 
 
 
