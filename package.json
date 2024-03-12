@@ -1,0 +1,23 @@
+{
+  "name": "04-06-i-need-a-restful-api",
+  "version": "1.0.0",
+  "description": "Practice building RESTful endpoints with Express by creating a CRUD API for a simple resource, stored in memory. This exercise will enhance your understanding of Express application structure, route definitions, handling HTTP methods, and crafting responses.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "joi": "^17.12.2",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+  }
+}
