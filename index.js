@@ -40,4 +40,18 @@ const books = [
   });
 
 
+
+
+
+
+  function validateBook(book) {
+    const schema = Joi.object({
+        title: Joi.string().required()
+    })
+
+   return schema.validate(book);
+
+}
+
+
   module.exports = app;
