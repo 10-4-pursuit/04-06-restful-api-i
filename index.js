@@ -19,3 +19,14 @@ const books = [
       title: "book3",
     },
   ];
+
+  app.get("/", (req, res) => {
+    res.send("Save The Planet"); 
+  });
+
+  app.get("/api/books", (req, res) => {
+    res.send(books);
+  });
+
+
+  module.exports = app;
