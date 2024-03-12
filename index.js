@@ -24,10 +24,12 @@ const books = [
     res.send("Save The Planet"); 
   });
 
+  //route handler for viewing all books
   app.get("/api/books", (req, res) => {
     res.send(books);
   });
 
+   //route handler for viewing books by id
   app.get("/api/books/:id", (req, res) => {
     const findBook = books.find((book) => book.id === parseInt(req.params.id));
   
@@ -39,6 +41,7 @@ const books = [
     res.send(findBook); //route handler
   });
 
+   //route handler for creating a new book
   app.post("/api/books", (req, res) => {
 
     const { error } = validateBook(req.body);
@@ -58,6 +61,7 @@ const books = [
   res.send(book); 
 });
 
+// //route handler for updating a book
 app.put("/api/books/:id", (req, res) => {
     const findBookById = books.find((book) => book.id === parseInt(req.params.id));
     if (!findBookById) {
@@ -78,10 +82,7 @@ app.put("/api/books/:id", (req, res) => {
 
 });
 
-
-
-
-
+// way to validate input
   function validateBook(book) {
     const schema = Joi.object({
         title: Joi.string().required()
@@ -91,6 +92,7 @@ app.put("/api/books/:id", (req, res) => {
 
 }
 
+//route handler to delete book
 app.delete('/api/books/:id', (req, res) => { 
     const findBook = books.find((book) => book.id === parseInt(req.params.id));
     if (!findBook) {
