@@ -91,5 +91,20 @@ app.put("/api/books/:id", (req, res) => {
 
 }
 
+app.delete('/api/books/:id', (req, res) => { 
+    const findBook = books.find((book) => book.id === parseInt(req.params.id));
+    if (!findBook) {
+      res.status(404).send("The book was not found");
+      return;
+    }
+
+    const index = books.indexOf(findBook); 
+    books.splice(index, 1);
+
+    res.send(findBook)
+
+
+})
+
 
   module.exports = app;
