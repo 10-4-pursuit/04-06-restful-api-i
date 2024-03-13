@@ -8,7 +8,7 @@ describe('Book resource CRUD operations', () => {
     const bookData = { title: 'New Book', author: 'John Doe', year: 2021 };
     const response = await request(app)
       .post('/books')
-      .send(book…<s);
+      .send(bookData);
     expect(response.statusCode).toBe(201);
     expect(response.body).toHaveProperty('id');
     newBookId = response.body.id; // Assuming the created book's id is returned
@@ -34,7 +34,7 @@ describe('Book resource CRUD operations', () => {
     expect(response.body).toHaveProperty('author', 'Jane Doe');
   });
 
-  it('should delete a book', async ()…<s {
+  it('should delete a book', async () => {
     const response = await request(app).delete(`/books/${newBookId}`);
     expect(response.statusCode).toBe(200);
     expect(response.text).toContain('Book successfully deleted');
